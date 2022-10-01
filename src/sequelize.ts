@@ -1,5 +1,5 @@
 // import {Sequelize} from 'sequelize-typescript';
-import {Sequelize} from '@types/sequelize';
+import {Sequelize} from 'sequelize';
 import {config} from './config/config';
 
 
