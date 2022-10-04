@@ -15,8 +15,22 @@ spec:
         app: backend-feed
     spec:
       containers:
-      - name: udagram-api-feed
-        image: rolandsankara/udagram-api-feed
+      - name: backend-feed
+        image: rolandsankara/udagram-api-feed:latest
         imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: env-vars
+        - secretRef:
+            name: env-secrets
+        - secretRef:
+            name: aws-secrets
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "300m"
+          limits:
+            memory: "1024Mi"
+            cpu: "550m"
         ports:
         - containerPort: 8080
